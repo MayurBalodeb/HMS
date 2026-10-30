@@ -1,0 +1,11 @@
+node_modules/
+.env
+backend/uploads/documents/*
+backend/uploads/lab_reports/*
+backend/uploads/qrcodes/*
+!backend/uploads/documents/.gitkeep
+!backend/uploads/lab_reports/.gitkeep
+!backend/uploads/qrcodes/.gitkeep
+npm-debug.log*
+.DS_Store
+*.log

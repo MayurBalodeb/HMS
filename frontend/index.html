@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Care Hospital — Modern Healthcare & Clinical Diagnostics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body class="landing">
+
+<!-- Sticky Glassmorphism Header -->
+<header class="l-navbar">
+  <div class="l-navbar-inner">
+    <div class="l-brand-group">
+      <a href="index.html" class="l-brand">🏥 City Care <span>Hospital</span></a>
+      <span class="l-brand-badge">ISO 9001:2015</span>
+    </div>
+    <nav class="l-nav-links">
+      <a href="#services">Services</a>
+      <a href="#specialties">Specialties</a>
+      <a href="#doctors">Specialists</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="l-nav-actions">
+      <a href="login.html" class="btn-outline">Staff / Patient Login</a>
+      <a href="register.html" class="btn-solid">Book Appointment</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<div class="l-hero-wrap">
+  <section class="l-hero">
+    <div class="l-hero-text">
+      <div class="l-badge-pill">
+        <span class="pulse-indicator"></span>
+        <span>Next-Generation MedTech Hospital System</span>
+      </div>
+      <h1>Compassionate Clinical Care, <span class="highlight-gradient">Digitally Unified.</span></h1>
+      <p>
+        City Care Hospital brings together board-certified medical specialists, integrated diagnostic pathology testing, 24/7 central pharmacy dispensing, and an intelligent AI clinical concierge — giving patients and doctors a modern healthcare experience.
+      </p>
+      <div class="l-hero-buttons">
+        <a href="register.html" class="btn-solid large">📅 Book OPD Consultation</a>
+        <button type="button" class="btn-ai-trigger large" onclick="toggleChatBot()">🤖 Chat with CareBot AI</button>
+        <a href="login.html" class="btn-outline large">🔐 Portal Login</a>
+      </div>
+      <div class="l-hero-helpline">
+        <span>🕒 <strong>Hospital Desk Helpline:</strong> +91-98765-43210</span>
+        <span style="color:#cbd5e1;">|</span>
+        <span>📍 123 Healthcare Boulevard</span>
+      </div>
+    </div>
+
+    <div class="l-hero-art">
+      <div class="l-hero-card">
+        <div class="l-card-header">
+          <div class="l-card-header-title">🏥 Patient Care Excellence</div>
+          <span class="badge badge-green" style="font-size:11px;">NABH & ISO Certified</span>
+        </div>
+        <div class="l-hero-card-row">
+          <div class="l-row-icon">🩺</div>
+          <div>
+            <strong>40+ Senior Specialists</strong>
+            <div style="font-size:12px; color:#94a3b8;">Cardiology, Ortho, Pediatrics, Medicine</div>
+          </div>
+        </div>
+        <div class="l-hero-card-row">
+          <div class="l-row-icon">🔬</div>
+          <div>
+            <strong>Automated Diagnostic Pathology</strong>
+            <div style="font-size:12px; color:#94a3b8;">CBC, Lipid, LFT & Digital Radiography</div>
+          </div>
+        </div>
+        <div class="l-hero-card-row">
+          <div class="l-row-icon">💊</div>
+          <div>
+            <strong>24/7 In-Hospital Pharmacy</strong>
+            <div style="font-size:12px; color:#94a3b8;">Certified dispensary & authentic medicines</div>
+          </div>
+        </div>
+        <div class="l-hero-card-row">
+          <div class="l-row-icon">🛏️</div>
+          <div>
+            <strong>120 Inpatient Rooms & ICU Beds</strong>
+            <div style="font-size:12px; color:#94a3b8;">Comfortable patient suites & 24/7 nursing</div>
+          </div>
+        </div>
+        <div class="l-hero-card-row">
+          <div class="l-row-icon">🪪</div>
+          <div>
+            <strong>Digital Health Pass & Records</strong>
+            <div style="font-size:12px; color:#94a3b8;">Fast check-in & lifelong digital history</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Live Hospital Stats Ribbon -->
+<section class="l-stats-ribbon">
+  <div class="l-stats-inner">
+    <div class="l-stat-box">
+      <div class="l-stat-number">40+</div>
+      <div class="l-stat-desc">Senior Specialists</div>
+    </div>
+    <div class="l-stat-box">
+      <div class="l-stat-number">120</div>
+      <div class="l-stat-desc">Inpatient & ICU Beds</div>
+    </div>
+    <div class="l-stat-box">
+      <div class="l-stat-number">50+</div>
+      <div class="l-stat-desc">Diagnostic Lab Tests</div>
+    </div>
+    <div class="l-stat-box">
+      <div class="l-stat-number">99.4%</div>
+      <div class="l-stat-desc">Patient Satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Core Medical Services -->
+<section class="l-section" id="services">
+  <div class="l-section-header">
+    <span class="l-section-tag">Patient Services</span>
+    <h2 class="l-section-title">Comprehensive Hospital Services</h2>
+    <p class="l-section-sub">Experience fully integrated outpatient care, diagnostic pathology testing, pharmacy dispensing, and transparent billing.</p>
+  </div>
+
+  <div class="l-services-grid">
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#eff6ff; color:#2563eb;">📅</div>
+      <h3>OPD Consultation Desk</h3>
+      <p>Book appointments online with your preferred specialist. Fast check-in and doctor clinical workbench with digital prescriptions.</p>
+      <span class="l-service-badge" style="background:#eff6ff; color:#2563eb;">Outpatient Care</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#f3e8ff; color:#7c3aed;">🔬</div>
+      <h3>Integrated Diagnostic Lab</h3>
+      <p>Doctor-ordered pathology tests (CBC, Lipid Profile, LFT, Thyroid, Digital X-Ray) are directly integrated into Hospital Billing with verified online reports.</p>
+      <span class="l-service-badge" style="background:#f3e8ff; color:#7c3aed;">Diagnostic Pathology</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#fef3c7; color:#d97706;">💊</div>
+      <h3>Central Pharmacy Store</h3>
+      <p>Automated dispensary system syncing doctor prescriptions, real-time inventory tracking, batch expiry verification, and medicine billing.</p>
+      <span class="l-service-badge" style="background:#fef3c7; color:#d97706;">Pharmacy Dispensary</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#ecfdf5; color:#059669;">🏨</div>
+      <h3>Inpatient Wards & ICU</h3>
+      <p>Live bed occupancy tracking across General Medical Wards, Semi-Private Rooms, and Intensive Care Units with round-the-clock nursing supervision.</p>
+      <span class="l-service-badge" style="background:#ecfdf5; color:#059669;">Inpatient Care</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#f0fdf4; color:#16a34a;">🌟</div>
+      <h3>24/7 Patient Care Helpdesk</h3>
+      <p>Dedicated clinical support staff, fast-track OPD appointments, computerized diagnostic scheduling, and compassionate assistance for all visiting families.</p>
+      <span class="l-service-badge" style="background:#f0fdf4; color:#16a34a;">Patient Support</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#faf5ff; color:#8b5cf6;">🤖</div>
+      <h3>CareBot™ AI Clinical Assistant</h3>
+      <p>Interactive 24/7 hospital AI concierge offering symptom guidance, doctor lookup, diagnostic test pricing, and personalized billing status.</p>
+      <span class="l-service-badge" style="background:#faf5ff; color:#8b5cf6;">Smart AI Concierge</span>
+    </div>
+  </div>
+</section>
+
+<!-- Clinical Specialities -->
+<section class="l-section-alt" id="specialties">
+  <div class="l-section-container">
+    <div class="l-section-header">
+      <span class="l-section-tag">Clinical Departments</span>
+      <h2 class="l-section-title">Specialized Centers of Excellence</h2>
+      <p class="l-section-sub">Experienced clinicians and modern diagnostic facilities across major healthcare disciplines.</p>
+    </div>
+
+    <div class="l-services-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <div class="l-service-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:10px;">🫀</div>
+        <h3 style="font-size:16px;">Cardiology</h3>
+        <p style="font-size:13px;">ECG, Lipid Profile, heart consultations and vital monitoring.</p>
+      </div>
+      <div class="l-service-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:10px;">🦴</div>
+        <h3 style="font-size:16px;">Orthopedics</h3>
+        <p style="font-size:13px;">Joint pain management, digital skeletal X-Rays, and trauma care.</p>
+      </div>
+      <div class="l-service-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:10px;">🧒</div>
+        <h3 style="font-size:16px;">Pediatrics</h3>
+        <p style="font-size:13px;">Child healthcare, immunization, growth tracking, and pediatric check-ups.</p>
+      </div>
+      <div class="l-service-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:10px;">🧠</div>
+        <h3 style="font-size:16px;">General Medicine</h3>
+        <p style="font-size:13px;">Comprehensive clinical diagnostics, fever triage, and internal medicine.</p>
+      </div>
+      <div class="l-service-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:10px;">🧪</div>
+        <h3 style="font-size:16px;">Pathology & Lab</h3>
+        <p style="font-size:13px;">Automated hematology, liver & kidney panels, and biochemistry.</p>
+      </div>
+      <div class="l-service-card" style="text-align:center;">
+        <div style="font-size:36px; margin-bottom:10px;">🩻</div>
+        <h3 style="font-size:16px;">Radiology</h3>
+        <p style="font-size:13px;">Digital X-Ray radiography with instant radiologist reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Specialists -->
+<section class="l-section" id="doctors">
+  <div class="l-section-header">
+    <span class="l-section-tag">Medical Faculty</span>
+    <h2 class="l-section-title">Consult Our Expert Specialists</h2>
+    <p class="l-section-sub">Meet our team of board-certified clinicians providing dedicated patient care.</p>
+  </div>
+
+  <div class="l-doctors-grid">
+    <div class="l-doctor-card">
+      <div class="l-doctor-avatar-circle">🩺</div>
+      <div class="l-doctor-name">Dr. Alice Rao</div>
+      <div class="l-doctor-spec">Cardiology Specialist (MD, DM)</div>
+      <p style="font-size:13px; color:#64748b; margin:0 0 14px;">14+ years experience in preventive cardiology, hypertension, and cardiac diagnostics.</p>
+      <div class="l-doctor-meta">
+        <span>OPD Fee: <strong>₹500</strong></span>
+        <span style="color:#16a34a;">Mon–Sat (9 AM–5 PM)</span>
+      </div>
+    </div>
+
+    <div class="l-doctor-card">
+      <div class="l-doctor-avatar-circle" style="background:#ecfdf5; color:#059669; border-color:#a7f3d0;">👨‍⚕️</div>
+      <div class="l-doctor-name">Dr. Aditya Nainav</div>
+      <div class="l-doctor-spec">General & Internal Medicine (MBBS, MD)</div>
+      <p style="font-size:13px; color:#64748b; margin:0 0 14px;">Specializing in acute fever triage, infectious diseases, and chronic health management.</p>
+      <div class="l-doctor-meta">
+        <span>OPD Fee: <strong>₹500</strong></span>
+        <span style="color:#16a34a;">Mon–Sat (9 AM–5 PM)</span>
+      </div>
+    </div>
+
+    <div class="l-doctor-card">
+      <div class="l-doctor-avatar-circle" style="background:#fef3c7; color:#d97706; border-color:#fde68a;">👩‍⚕️</div>
+      <div class="l-doctor-name">Dr. Priya Mehta</div>
+      <div class="l-doctor-spec">Consultant Pediatrician (MD)</div>
+      <p style="font-size:13px; color:#64748b; margin:0 0 14px;">Child wellness care, infant vaccinations, pediatric infections, and growth assessment.</p>
+      <div class="l-doctor-meta">
+        <span>OPD Fee: <strong>₹500</strong></span>
+        <span style="color:#16a34a;">Mon–Sat (9 AM–5 PM)</span>
+      </div>
+    </div>
+
+    <div class="l-doctor-card">
+      <div class="l-doctor-avatar-circle" style="background:#f3e8ff; color:#7c3aed; border-color:#ddd6fe;">🦴</div>
+      <div class="l-doctor-name">Dr. Rajesh Kulkarni</div>
+      <div class="l-doctor-spec">Orthopedic Surgeon (MS Ortho)</div>
+      <p style="font-size:13px; color:#64748b; margin:0 0 14px;">Specialist in joint reconstructions, sports injuries, fracture management, and spine care.</p>
+      <div class="l-doctor-meta">
+        <span>OPD Fee: <strong>₹600</strong></span>
+        <span style="color:#16a34a;">Mon–Sat (9 AM–5 PM)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hospital Facilities & Inpatient Amenities -->
+<section class="l-section" id="facilities">
+  <div class="l-section-header">
+    <span class="l-section-tag">Patient Facilities</span>
+    <h2 class="l-section-title">World-Class Healthcare Infrastructure</h2>
+    <p class="l-section-sub">Modern clinical technology, sterile inpatient suites, automated pathology, and 24/7 patient support designed for comfort and recovery.</p>
+  </div>
+
+  <div class="l-services-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#eff6ff; color:#2563eb;">🛏️</div>
+      <h3>Modern Inpatient Rooms & Suites</h3>
+      <p>Clean, spacious General Wards, Semi-Private, and Private Patient Suites equipped with ergonomic motorized beds, central medical gas lines, vital monitors, and round-the-clock dedicated nursing supervision.</p>
+      <span class="l-service-badge" style="background:#eff6ff; color:#2563eb;">Inpatient Comfort</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#fef2f2; color:#dc2626;">🩺</div>
+      <h3>Advanced Intensive Care Unit (ICU)</h3>
+      <p>Fully equipped multi-parameter ICU setup with automated ventilators, cardiac monitors, infusion stations, and critical care specialists on active duty 24/7 for high-acuity medical care.</p>
+      <span class="l-service-badge" style="background:#fef2f2; color:#dc2626;">Critical Care</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#f5f3ff; color:#7c3aed;">🔬</div>
+      <h3>Automated Pathology & Biochemistry</h3>
+      <p>NABL-accredited diagnostic laboratory offering fast-track sample processing for Complete Blood Counts (CBC), Lipid Profiles, Liver Function Tests (LFT), and hormone assays with instant online reporting.</p>
+      <span class="l-service-badge" style="background:#f5f3ff; color:#7c3aed;">Clinical Diagnostics</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#ecfdf5; color:#059669;">🩻</div>
+      <h3>Digital Radiology & Imaging</h3>
+      <p>Ultra-low dose digital chest and skeletal radiography delivering high-resolution digital images directly to your consulting doctor's workstation within minutes.</p>
+      <span class="l-service-badge" style="background:#ecfdf5; color:#059669;">Medical Radiography</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#fefce8; color:#ca8a04;">💊</div>
+      <h3>24/7 Central Pharmacy Dispensary</h3>
+      <p>In-hospital licensed medical store providing authentic batch-verified medications, surgical consumables, and expert dosage guidance directly synced with doctor prescriptions.</p>
+      <span class="l-service-badge" style="background:#fefce8; color:#ca8a04;">24/7 Dispensary</span>
+    </div>
+
+    <div class="l-service-card">
+      <div class="l-service-icon-wrap" style="background:#f0fdf4; color:#16a34a;">🪪</div>
+      <h3>Digital Patient Health Pass & QR Card</h3>
+      <p>Every registered patient receives a secure QR Medical Card enabling contactless OPD check-in, immediate medical history retrieval, and online tax receipt downloads.</p>
+      <span class="l-service-badge" style="background:#f0fdf4; color:#16a34a;">Digital Patient Portal</span>
+    </div>
+  </div>
+</section>
+
+<!-- Patient Reviews & Clinical Trust -->
+<section class="l-section-alt" id="testimonials">
+  <div class="l-section-container">
+    <div class="l-section-header">
+      <span class="l-section-tag" style="background:#dbeafe; color:#1d4ed8;">Patient Stories</span>
+      <h2 class="l-section-title">Trusted by Thousands of Patients</h2>
+      <p class="l-section-sub">Read what visiting families and patients have to say about our compassionate medical faculty and clinical care standards.</p>
+    </div>
+
+    <div class="l-services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="l-service-card" style="box-shadow:var(--shadow-sm);">
+        <div style="color:#eab308; font-size:18px; margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:14px; color:#334155; font-style:italic; line-height:1.7;">
+          "The OPD consultation with Dr. Alice Rao was exceptional. The diagnostic lab tests were done on the spot, and the report was ready in 2 hours. Extremely professional and hygienic hospital!"
+        </p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:16px; border-top:1px solid #f1f5f9; padding-top:14px;">
+          <div style="width:38px; height:38px; border-radius:50%; background:#dbeafe; color:#1d4ed8; font-weight:700; display:flex; align-items:center; justify-content:center;">RS</div>
+          <div>
+            <strong style="font-size:13px; color:#0f172a;">Ramesh Sharma</strong>
+            <div style="font-size:12px; color:#64748b;">Cardiology Patient • Metro City</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-service-card" style="box-shadow:var(--shadow-sm);">
+        <div style="color:#eab308; font-size:18px; margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:14px; color:#334155; font-style:italic; line-height:1.7;">
+          "Dr. Rajesh Kulkarni handled my knee treatment with utmost skill. The nurses in the semi-private ward were attentive 24/7. The digital QR health pass made all my follow-up visits completely seamless."
+        </p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:16px; border-top:1px solid #f1f5f9; padding-top:14px;">
+          <div style="width:38px; height:38px; border-radius:50%; background:#dcfce7; color:#15803d; font-weight:700; display:flex; align-items:center; justify-content:center;">AK</div>
+          <div>
+            <strong style="font-size:13px; color:#0f172a;">Anita Kapoor</strong>
+            <div style="font-size:12px; color:#64748b;">Orthopedics Inpatient</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="l-service-card" style="box-shadow:var(--shadow-sm);">
+        <div style="color:#eab308; font-size:18px; margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:14px; color:#334155; font-style:italic; line-height:1.7;">
+          "Dr. Priya Mehta is wonderful with children. The pediatric clinic has a warm, welcoming atmosphere. I also used CareBot AI to check doctor visiting hours before coming in — it works brilliantly!"
+        </p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:16px; border-top:1px solid #f1f5f9; padding-top:14px;">
+          <div style="width:38px; height:38px; border-radius:50%; background:#fef3c7; color:#b45309; font-weight:700; display:flex; align-items:center; justify-content:center;">SN</div>
+          <div>
+            <strong style="font-size:13px; color:#0f172a;">Sneha Nambiar</strong>
+            <div style="font-size:12px; color:#64748b;">Parent • Child Healthcare</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modern Footer -->
+<footer class="l-footer" id="contact">
+  <div class="l-footer-inner">
+    <div class="l-footer-col">
+      <div class="l-brand" style="color:#ffffff; margin-bottom:12px;">🏥 City Care <span style="color:#60a5fa;">Hospital</span></div>
+      <p style="font-size:13px; line-height:1.7; color:#94a3b8; max-width:300px;">
+        Central Healthcare Facility & Diagnostic Center. Accredited for clinical excellence, transparent patient billing, and ethical medical care.
+      </p>
+      <div style="font-size:13px; margin-top:14px; color:#cbd5e1;">
+        📞 <strong>Helpline:</strong> +91-98765-43210<br>
+        ✉️ <strong>Email:</strong> care@citycarehospital.com
+      </div>
+    </div>
+
+    <div class="l-footer-col">
+      <h4>Clinical Specialities</h4>
+      <ul>
+        <li><a href="#specialties">Cardiology Care</a></li>
+        <li><a href="#specialties">Orthopedics & Spine</a></li>
+        <li><a href="#specialties">Pediatrics Clinic</a></li>
+        <li><a href="#specialties">Internal Medicine</a></li>
+        <li><a href="#specialties">Diagnostic Radiology</a></li>
+      </ul>
+    </div>
+
+    <div class="l-footer-col">
+      <h4>Diagnostic Pathology</h4>
+      <ul>
+        <li><a href="#services">Complete Blood Count (CBC)</a></li>
+        <li><a href="#services">Lipid Profile Test</a></li>
+        <li><a href="#services">Liver Function Test (LFT)</a></li>
+        <li><a href="#services">Thyroid Profile (TSH)</a></li>
+        <li><a href="#services">Digital Chest Radiography</a></li>
+      </ul>
+    </div>
+
+    <div class="l-footer-col">
+      <h4>Patient Quick Links</h4>
+      <ul>
+        <li><a href="login.html">Patient & Staff Login</a></li>
+        <li><a href="register.html">Book OPD Consultation</a></li>
+        <li><a href="#facilities">Hospital Facilities</a></li>
+        <li><a href="javascript:void(0)" onclick="toggleChatBot()">CareBot AI Concierge</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="l-footer-bottom">
+    <div>© 2026 City Care Hospital • All Rights Reserved</div>
+    <div>ISO 9001:2015 Certified Multispeciality Hospital Management System</div>
+  </div>
+</footer>
+
+<!-- Embedded CareBot AI Concierge Widget on Home Page -->
+<button class="carebot-trigger" id="carebotTrigger" onclick="toggleChatBot()" title="Chat with CareBot AI">
+  <span style="font-size:18px;">🤖</span> CareBot AI <span class="pulse-indicator" style="background:#4ade80;"></span>
+</button>
+
+<div class="carebot-modal" id="carebotModal" style="display:none;">
+  <div class="carebot-header">
+    <div class="carebot-header-left">
+      <div class="carebot-avatar">🤖</div>
+      <div>
+        <div class="carebot-header-title">CareBot™ AI Concierge</div>
+        <div class="carebot-header-sub">
+          <span class="pulse-indicator" style="background:#22c55e; width:6px; height:6px;"></span>
+          City Care Hospital Assistant (Online)
+        </div>
+      </div>
+    </div>
+    <div class="carebot-header-actions">
+      <button onclick="resetChatBot()" title="Clear chat">🔄</button>
+      <button onclick="toggleChatBot()" title="Close chat">✕</button>
+    </div>
+  </div>
+
+  <div class="carebot-body" id="carebotBody">
+    <div class="chat-msg bot">
+      <div class="chat-msg-avatar">🤖</div>
+      <div class="chat-msg-bubble">
+        Hello! 👋 I am <strong>CareBot</strong>, your City Care Hospital AI Concierge.<br><br>
+        Ask me anything about:
+        <ul style="margin:4px 0 6px 16px; padding:0;">
+          <li>🩺 <strong>Available Doctors & OPD Schedules</strong></li>
+          <li>🏥 <strong>Hospital & Diagnostic Lab Billing</strong></li>
+          <li>🔬 <strong>Pathology Tests Catalog & Pricing</strong></li>
+          <li>💊 <strong>Central Pharmacy & Medicines</strong></li>
+          <li>🛏️ <strong>Wards & Bed Availability</strong></li>
+        </ul>
+        What would you like to know?
+      </div>
+    </div>
+
+    <div class="chat-suggestions" id="chatSuggestions">
+      <div class="chat-chip" onclick="askQuickPrompt('Available Doctors')">🩺 Available Doctors</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Hospital & Lab Billing')">🏥 Hospital & Lab Billing</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Lab tests & pricing')">🔬 Diagnostic Tests</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Pharmacy & Prescriptions')">💊 Pharmacy & Rx</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Bed availability')">🛏️ Inpatient Wards</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Hospital timings')">🕒 Working Hours</div>
+    </div>
+  </div>
+
+  <div class="carebot-footer">
+    <form id="carebotForm" onsubmit="handleChatSubmit(event)" class="carebot-input-wrap">
+      <input type="text" id="carebotInput" placeholder="Ask CareBot anything..." autocomplete="off">
+      <button type="submit" id="carebotSendBtn">➤</button>
+    </form>
+  </div>
+</div>
+
+<script>
+// Standalone lightweight CareBot AI client for Home Page
+let chatHistory = [];
+let isChatOpen = false;
+
+function toggleChatBot() {
+  const modal = document.getElementById('carebotModal');
+  if (!modal) return;
+  isChatOpen = !isChatOpen;
+  modal.style.display = isChatOpen ? 'flex' : 'none';
+  if (isChatOpen) {
+    const body = document.getElementById('carebotBody');
+    if (body) body.scrollTop = body.scrollHeight;
+    const inp = document.getElementById('carebotInput');
+    if (inp) inp.focus();
+  }
+}
+
+function resetChatBot() {
+  chatHistory = [];
+  const body = document.getElementById('carebotBody');
+  if (!body) return;
+  body.innerHTML = `
+    <div class="chat-msg bot">
+      <div class="chat-msg-avatar">🤖</div>
+      <div class="chat-msg-bubble">
+        Hello! 👋 I am <strong>CareBot</strong>, your City Care Hospital AI Concierge.<br><br>
+        Ask me anything about:
+        <ul style="margin:4px 0 6px 16px; padding:0;">
+          <li>🩺 <strong>Available Doctors & Appointments</strong></li>
+          <li>🏥 <strong>Hospital & Diagnostic Lab Billing</strong></li>
+          <li>🔬 <strong>Pathology Tests Catalog & Pricing</strong></li>
+          <li>💊 <strong>Pharmacy Medicines & Prescriptions</strong></li>
+          <li>🛏️ <strong>Wards & Bed Availability</strong></li>
+        </ul>
+        What would you like to know?
+      </div>
+    </div>
+    <div class="chat-suggestions" id="chatSuggestions">
+      <div class="chat-chip" onclick="askQuickPrompt('Available Doctors')">🩺 Available Doctors</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Hospital & Lab Billing')">🏥 Hospital & Lab Billing</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Lab tests & pricing')">🔬 Diagnostic Tests</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Pharmacy & Prescriptions')">💊 Pharmacy & Rx</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Bed availability')">🛏️ Inpatient Wards</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Hospital timings')">🕒 Working Hours</div>
+    </div>
+  `;
+}
+
+function askQuickPrompt(text) {
+  const inp = document.getElementById('carebotInput');
+  if (inp) {
+    inp.value = text;
+    handleChatSubmit(new Event('submit'));
+  }
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function formatBotText(rawText) {
+  let text = escapeHtml(rawText);
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  text = text.replace(/^• (.*?)$/gm, '<li style="margin-left:14px;">$1</li>');
+  text = text.replace(/^- (.*?)$/gm, '<li style="margin-left:14px;">$1</li>');
+  text = text.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+  return text;
+}
+
+async function handleChatSubmit(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  const inp = document.getElementById('carebotInput');
+  const msg = (inp.value || '').trim();
+  if (!msg) return;
+
+  inp.value = '';
+  appendUserMessage(msg);
+
+  const body = document.getElementById('carebotBody');
+  const typingId = 'typing_' + Date.now();
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.id = typingId;
+  div.innerHTML = `<div class="chat-msg-avatar">🤖</div><div class="chat-msg-bubble" style="color:#64748b; font-style:italic;">Thinking...</div>`;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+
+  try {
+    const token = localStorage.getItem('hms_token');
+    const headers = { 'Content-Type': 'application/json' };
+    if (token) headers['Authorization'] = 'Bearer ' + token;
+
+    const res = await fetch('/api/ai/chat', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ message: msg, history: chatHistory.slice(-6) })
+    });
+    const data = await res.json();
+    document.getElementById(typingId)?.remove();
+
+    if (!data.success) throw new Error(data.message || 'Chat service unavailable');
+
+    const reply = data.data.reply;
+    const suggestions = data.data.suggestions || [];
+    chatHistory.push({ role: 'user', content: msg });
+    chatHistory.push({ role: 'assistant', content: reply });
+
+    appendBotMessage(reply, suggestions);
+  } catch (err) {
+    document.getElementById(typingId)?.remove();
+    appendBotMessage('I apologize, but I could not reach the clinical assistant service. Please contact our Front Desk at +91-98765-43210. (' + escapeHtml(err.message) + ')');
+  }
+}
+
+function appendUserMessage(text) {
+  const body = document.getElementById('carebotBody');
+  if (!body) return;
+  const div = document.createElement('div');
+  div.className = 'chat-msg user';
+  div.innerHTML = `
+    <div class="chat-msg-bubble">${escapeHtml(text)}</div>
+    <div class="chat-msg-avatar" style="background:#2563eb; color:#fff;">U</div>
+  `;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function appendBotMessage(rawText, suggestions = []) {
+  const body = document.getElementById('carebotBody');
+  if (!body) return;
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.innerHTML = `
+    <div class="chat-msg-avatar">🤖</div>
+    <div class="chat-msg-bubble">${formatBotText(rawText)}</div>
+  `;
+  body.appendChild(div);
+
+  const oldChips = document.getElementById('chatSuggestions');
+  if (oldChips) oldChips.remove();
+
+  if (suggestions && suggestions.length) {
+    const sugDiv = document.createElement('div');
+    sugDiv.className = 'chat-suggestions';
+    sugDiv.id = 'chatSuggestions';
+    sugDiv.innerHTML = suggestions.map(s => `<div class="chat-chip" onclick="askQuickPrompt('${escapeHtml(s)}')">${escapeHtml(s)}</div>`).join('');
+    body.appendChild(sugDiv);
+  }
+
+  body.scrollTop = body.scrollHeight;
+}
+</script>
+
+</body>
+</html>

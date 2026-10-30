@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMS Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">🏥 HMS <small id="roleLabel">—</small></div>
+    <nav id="navMenu"></nav>
+    <div class="sidebar-footer">
+      <div style="font-size:13px; font-weight:600;" id="userName">—</div>
+      <div style="font-size:12px; color:#64748b; margin-bottom:10px;" id="userEmail">—</div>
+      <button class="secondary" style="width:100%;" onclick="logout()">Log out</button>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div id="pageTitle" style="font-weight:700; font-size:17px; font-family:var(--font-heading);">Overview</div>
+        <div class="topbar-clock" id="topbarClock">
+          <span class="pulse-indicator"></span>
+          <span id="liveClockDisplay">Live System</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div class="topbar-search">
+          <span class="search-icon">🔍</span>
+          <input id="quickSearchInput" placeholder="Search patients, doctors..." onkeyup="handleQuickSearch(event)">
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <label style="margin:0; font-size:12px; color:#64748b; font-weight:600;">Role:</label>
+          <select id="roleSwitch" onchange="switchRole(this.value)" style="margin:0; font-size:12px; padding:4px 8px; border-radius:6px; background:#fff; border:1px solid #cbd5e1; font-weight:600;">
+            <option value="admin">Admin</option>
+            <option value="doctor">Doctor</option>
+            <option value="nurse">Nurse</option>
+            <option value="receptionist">Receptionist</option>
+            <option value="pharmacist">Pharmacist</option>
+            <option value="accountant">Accountant</option>
+            <option value="lab_staff">Lab Staff</option>
+            <option value="patient">Patient</option>
+          </select>
+          <span id="userRoleBadge" class="badge badge-blue" style="font-weight:700; text-transform:uppercase; font-size:11px; padding:4px 10px;">—</span>
+        </div>
+        <span id="notifBell" style="cursor:pointer; position:relative;" onclick="toggleNotifPanel()">
+          🔔 <span id="notifCount" class="badge badge-red" style="display:none; position:absolute; top:-8px; right:-10px;">0</span>
+        </span>
+        <div class="user-avatar-pill">
+          <div class="avatar-circle" id="userAvatarCircle">U</div>
+          <span id="userShortName" style="max-width:90px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">User</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content" id="content">Loading...</div>
+  </div>
+</div>
+
+<!-- CareBot AI Floating Widget -->
+<button class="carebot-trigger" id="carebotTrigger" onclick="toggleChatBot()" title="Chat with CareBot AI">
+  <span style="font-size:18px;">🤖</span> CareBot AI <span class="pulse-indicator" style="background:#4ade80;"></span>
+</button>
+
+<div class="carebot-modal" id="carebotModal" style="display:none;">
+  <div class="carebot-header">
+    <div class="carebot-header-left">
+      <div class="carebot-avatar">🤖</div>
+      <div>
+        <div class="carebot-header-title">CareBot™ AI Concierge</div>
+        <div class="carebot-header-sub">
+          <span class="pulse-indicator" style="background:#22c55e; width:6px; height:6px;"></span>
+          City Care Hospital Assistant (Online)
+        </div>
+      </div>
+    </div>
+    <div class="carebot-header-actions">
+      <button onclick="resetChatBot()" title="Clear chat">🔄</button>
+      <button onclick="toggleChatBot()" title="Close chat">✕</button>
+    </div>
+  </div>
+
+  <div class="carebot-body" id="carebotBody">
+    <div class="chat-msg bot">
+      <div class="chat-msg-avatar">🤖</div>
+      <div class="chat-msg-bubble">
+        Hello! 👋 I am <strong>CareBot</strong>, your City Care Hospital AI Concierge.<br><br>
+        Ask me anything about:
+        <ul style="margin:4px 0 6px 16px; padding:0;">
+          <li>🩺 <strong>Available Doctors & Appointments</strong></li>
+          <li>🏥 <strong>Hospital & Diagnostic Lab Billing</strong></li>
+          <li>🔬 <strong>Pathology Tests Catalog & Pricing</strong></li>
+          <li>💊 <strong>Pharmacy Medicines & Prescriptions</strong></li>
+          <li>🛏️ <strong>Wards & Bed Availability</strong></li>
+        </ul>
+        What would you like to know?
+      </div>
+    </div>
+
+    <div class="chat-suggestions" id="chatSuggestions">
+      <div class="chat-chip" onclick="askQuickPrompt('Available Doctors')">🩺 Available Doctors</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Hospital & Lab Billing')">🏥 Hospital & Lab Billing</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Lab tests & pricing')">🔬 Diagnostic Tests</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Pharmacy & Prescriptions')">💊 Pharmacy & Rx</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Bed availability')">🛏️ Inpatient Wards</div>
+      <div class="chat-chip" onclick="askQuickPrompt('Hospital timings')">🕒 Working Hours</div>
+    </div>
+  </div>
+
+  <div class="carebot-footer">
+    <form id="carebotForm" onsubmit="handleChatSubmit(event)" class="carebot-input-wrap">
+      <input type="text" id="carebotInput" placeholder="Ask CareBot anything..." autocomplete="off">
+      <button type="submit" id="carebotSendBtn">➤</button>
+    </form>
+  </div>
+</div>
+
+<div id="notifPanel" class="modal-overlay" style="display:none;" onclick="if(event.target===this) toggleNotifPanel()">
+  <div class="modal" style="width:360px;">
+    <h3>Notifications</h3>
+    <div id="notifList"></div>
+  </div>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

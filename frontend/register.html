@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMS — Patient Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-box" style="width:460px;">
+    <a href="index.html" style="font-size:13px; color:#64748b; display:inline-block; margin-bottom:14px;">← Back to home</a>
+    <h1>📝 Patient Registration</h1>
+    <p class="sub">Create your patient account</p>
+
+    <form id="regForm">
+      <div class="form-row">
+        <div><label>Full Name *</label><input id="name" required></div>
+        <div><label>Phone</label><input id="phone"></div>
+      </div>
+      <div class="form-row">
+        <div><label>Email *</label><input type="email" id="email" required></div>
+        <div><label>Password *</label><input type="password" id="password" required minlength="6"></div>
+      </div>
+      <div class="form-row">
+        <div><label>Date of Birth</label><input type="date" id="dob"></div>
+        <div><label>Gender</label>
+          <select id="gender"><option value="">Select</option><option value="male">Male</option><option value="female">Female</option><option value="other">Other</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div><label>Blood Group</label>
+          <select id="blood_group"><option value="">Select</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+        </div>
+        <div><label>Emergency Contact Phone</label><input id="emergency_phone"></div>
+      </div>
+      <label>Address</label><input id="address">
+      <label>Emergency Contact Name</label><input id="emergency_contact">
+      <button type="submit" style="width:100%; justify-content:center; margin-top:6px;">Register</button>
+    </form>
+    <p id="errorMsg" style="color:#dc2626; font-size:13px; margin-top:10px; display:none;"></p>
+    <p style="margin-top:16px; font-size:13px;">Already have an account? <a href="login.html">Sign in</a></p>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script>
+document.getElementById('regForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const errorEl = document.getElementById('errorMsg');
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  errorEl.style.display = 'none';
+
+  const nameVal = document.getElementById('name').value.trim();
+  const emailVal = document.getElementById('email').value.trim();
+  const passwordVal = document.getElementById('password').value;
+  const phoneVal = document.getElementById('phone').value.trim();
+  const dobVal = document.getElementById('dob').value;
+  const genderVal = document.getElementById('gender').value;
+  const bloodGroupVal = document.getElementById('blood_group').value;
+  const addressVal = document.getElementById('address').value.trim();
+  const emContactVal = document.getElementById('emergency_contact').value.trim();
+  const emPhoneVal = document.getElementById('emergency_phone').value.trim();
+
+  if (!nameVal || !emailVal || !passwordVal) {
+    errorEl.textContent = 'Please fill all required fields (Name, Email, Password).';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Creating Account...';
+  }
+
+  try {
+    const payload = {
+      name: nameVal,
+      email: emailVal,
+      password: passwordVal,
+      phone: phoneVal || null,
+      dob: dobVal || null,
+      gender: genderVal || null,
+      blood_group: bloodGroupVal || null,
+      address: addressVal || null,
+      emergency_contact: emContactVal || null,
+      emergency_phone: emPhoneVal || null
+    };
+
+    const res = await Api.post('/auth/register', payload);
+    if (!res || !res.data || !res.data.token) {
+      throw new Error('Registration failed. Please try again.');
+    }
+
+    Api.setToken(res.data.token);
+    Api.setUser(res.data.user);
+    location.href = 'pages/dashboard.html';
+  } catch (err) {
+    errorEl.textContent = err.message || 'Registration failed.';
+    errorEl.style.display = 'block';
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Register';
+    }
+  }
+});
+</script>
+</body>
+</html>

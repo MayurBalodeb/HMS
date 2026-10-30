@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMS — Sign In</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-box">
+    <a href="index.html" style="font-size:13px; color:#64748b; display:inline-block; margin-bottom:14px;">← Back to home</a>
+    <h1>🏥 HMS Login</h1>
+    <p class="sub">Hospital Management System</p>
+
+    <div id="alreadyLoggedIn" style="display:none; background:#ecfdf5; border:1px solid #a7f3d0; padding:10px; border-radius:6px; margin-bottom:14px; font-size:13px; color:#065f46;">
+      Currently signed in as: <strong id="loggedInUser"></strong><br>
+      <div style="margin-top:6px; display:flex; gap:8px;">
+        <a href="pages/dashboard.html" style="font-weight:700; color:#047857; text-decoration:underline;">Go to Dashboard →</a>
+        <span>•</span>
+        <a href="#" onclick="clearSession(); return false;" style="color:#b91c1c; text-decoration:underline;">Clear Session / Sign Out</a>
+      </div>
+    </div>
+
+    <form id="loginForm">
+      <label>Email</label>
+      <input type="email" id="email" required placeholder="you@hms.com" autocomplete="username">
+      <label>Password</label>
+      <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password">
+      <button type="submit" id="submitBtn" style="width:100%; justify-content:center;">Sign In</button>
+    </form>
+    <p id="errorMsg" style="color:#dc2626; font-size:13px; margin-top:10px; display:none;"></p>
+
+    <div style="margin-top:20px; padding-top:16px; border-top:1px solid #e2e8f0;">
+      <div style="font-size:12px; font-weight:700; color:#475569; margin-bottom:8px;">⚡ 1-Click Demo Login:</div>
+      <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:6px; margin-bottom:12px;">
+        <button type="button" class="secondary" style="font-size:12px; padding:6px 10px; justify-content:center;" onclick="quickLogin('admin@hms.com', 'Admin@123')">👑 Admin</button>
+        <button type="button" class="secondary" style="font-size:12px; padding:6px 10px; justify-content:center;" onclick="quickLogin('doctor@hms.com', 'Doctor@123')">🩺 Doctor</button>
+        <button type="button" class="secondary" style="font-size:12px; padding:6px 10px; justify-content:center;" onclick="quickLogin('pharmacist@hms.com', 'Pharma@123')">💊 Pharmacist</button>
+        <button type="button" class="secondary" style="font-size:12px; padding:6px 10px; justify-content:center;" onclick="quickLogin('reception@hms.com', 'Reception@123')">🏢 Reception</button>
+        <button type="button" class="secondary" style="font-size:12px; padding:6px 10px; justify-content:center;" onclick="quickLogin('accountant@hms.com', 'Account@123')">💳 Accountant</button>
+        <button type="button" class="secondary" style="font-size:12px; padding:6px 10px; justify-content:center;" onclick="quickLogin('patient@hms.com', 'Patient@123')">🧑 Patient</button>
+      </div>
+
+      <details style="font-size:12px; color:#64748b; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:8px 12px;">
+        <summary style="font-weight:700; cursor:pointer; color:#334155;">🔑 All Department Passwords Reference</summary>
+        <table style="width:100%; margin-top:8px; font-size:11px; border-collapse:collapse; text-align:left;">
+          <thead>
+            <tr style="border-bottom:1px solid #cbd5e1; color:#475569;">
+              <th style="padding:4px 0;">Role</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th style="text-align:right;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #f1f5f9;"><td>👑 Admin</td><td>admin@hms.com</td><td>Admin@123</td><td style="text-align:right;"><a href="#" style="color:#0284c7; font-weight:600;" onclick="fillCreds('admin@hms.com', 'Admin@123'); return false;">Fill</a></td></tr>
+            <tr style="border-bottom:1px solid #f1f5f9;"><td>🩺 Doctor</td><td>doctor@hms.com</td><td>Doctor@123</td><td style="text-align:right;"><a href="#" style="color:#0284c7; font-weight:600;" onclick="fillCreds('doctor@hms.com', 'Doctor@123'); return false;">Fill</a></td></tr>
+            <tr style="border-bottom:1px solid #f1f5f9;"><td>🏢 Reception</td><td>reception@hms.com</td><td>Reception@123</td><td style="text-align:right;"><a href="#" style="color:#0284c7; font-weight:600;" onclick="fillCreds('reception@hms.com', 'Reception@123'); return false;">Fill</a></td></tr>
+            <tr style="border-bottom:1px solid #f1f5f9;"><td>💊 Pharmacist</td><td>pharmacist@hms.com</td><td>Pharma@123</td><td style="text-align:right;"><a href="#" style="color:#0284c7; font-weight:600;" onclick="fillCreds('pharmacist@hms.com', 'Pharma@123'); return false;">Fill</a></td></tr>
+            <tr style="border-bottom:1px solid #f1f5f9;"><td>💳 Accountant</td><td>accountant@hms.com</td><td>Account@123</td><td style="text-align:right;"><a href="#" style="color:#0284c7; font-weight:600;" onclick="fillCreds('accountant@hms.com', 'Account@123'); return false;">Fill</a></td></tr>
+            <tr style="border-bottom:1px solid #f1f5f9;"><td>🛏️ Nurse</td><td>nurse@hms.com</td><td>Nurse@123</td><td style="text-align:right;"><a href="#" style="color:#0284c7; font-weight:600;" onclick="fillCreds('nurse@hms.com', 'Nurse@123'); return false;">Fill</a></td></tr>
+            <tr><td>🧑 Patient</td><td>patient@hms.com</td><td>Patient@123</td><td style="text-align:right;"><a href="#" style="color:#0284c7; font-weight:600;" onclick="fillCreds('patient@hms.com', 'Patient@123'); return false;">Fill</a></td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+
+    <p style="margin-top:16px; font-size:13px;">New patient? <a href="register.html">Create an account</a></p>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script>
+async function doLogin(email, password) {
+  const errorEl = document.getElementById('errorMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  errorEl.style.display = 'none';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Signing in...';
+  }
+
+  try {
+    const res = await Api.post('/auth/login', { email: email.trim(), password });
+    if (!res || !res.data || !res.data.token) {
+      throw new Error('Invalid response from authentication server.');
+    }
+    Api.setToken(res.data.token);
+    Api.setUser(res.data.user);
+    location.href = 'pages/dashboard.html';
+  } catch (err) {
+    errorEl.textContent = err.message || 'Login failed. Please check credentials.';
+    errorEl.style.display = 'block';
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign In';
+    }
+  }
+}
+
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  doLogin(email, password);
+});
+
+function fillCreds(email, password) {
+  document.getElementById('email').value = email;
+  document.getElementById('password').value = password;
+  const errorEl = document.getElementById('errorMsg');
+  if (errorEl) errorEl.style.display = 'none';
+}
+
+function quickLogin(email, password) {
+  fillCreds(email, password);
+  doLogin(email, password);
+}
+
+function clearSession() {
+  Api.setToken(null);
+  Api.setUser(null);
+  document.getElementById('alreadyLoggedIn').style.display = 'none';
+}
+
+// Show existing session info if present, but do not force redirect
+const existingUser = Api.getUser();
+if (Api.token() && existingUser) {
+  const banner = document.getElementById('alreadyLoggedIn');
+  const userSpan = document.getElementById('loggedInUser');
+  if (banner && userSpan) {
+    userSpan.textContent = `${existingUser.name} (${existingUser.role})`;
+    banner.style.display = 'block';
+  }
+}
+</script>
+</body>
+</html>
